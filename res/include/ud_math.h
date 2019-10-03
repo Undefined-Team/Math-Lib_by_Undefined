@@ -30,5 +30,7 @@ float       ud_math_pow(float x, float e);
 float       ud_math_rand(float bound_a, float bound_b);
 void        ud_math_si_sort(ud_arr *arr);
 float       ud_math_sqrt(const float x);
+float       ud_math_min_a(ud_arr *x);
+float       ud_math_max_a(ud_arr *x);
 
 #endif
