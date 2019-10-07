@@ -1,2 +1,2 @@
 # Math Lib by Undefined
- Simple C lib for math
+ C lib for math
