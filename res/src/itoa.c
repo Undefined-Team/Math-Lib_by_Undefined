@@ -11,16 +11,13 @@ char *ud_math_itoa_l(long long n, size_t *len)
     char *res;
     if (n == -2147483648) return ud_str_dup("-2147483648");
     size_t n_len = ud_math_int_len(n);
-    ud_bool neg = false;
+    UD_UT_PROT_MALLOC(res = ud_ut_malloc(sizeof(char) * (n_len + 1)));
     if (n < 0)
     {
-        neg = true;
         n *= -1;
-        ++n_len;
+        *res = '-';
     }
     if (len) *len = n_len;
-    UD_UT_PROT_MALLOC(res = ud_ut_malloc(sizeof(char) * (n_len + 1)));
-    if (neg) *res = '-';
     char *l_res = &res[n_len];
     *l_res = '\0';
 	ud_math_itoa_rec(n, l_res - 1);
