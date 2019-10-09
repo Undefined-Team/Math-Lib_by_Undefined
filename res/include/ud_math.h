@@ -4,6 +4,7 @@
 // Lib
 #include <stdint.h>
 #include <ud_utils.h>
+#include <ud_string.h>
 
 // Macro
 # define    ud_math_max(x, y)               (x > y ? x : y)
@@ -21,17 +22,17 @@
 // Structures
 
 // Prototypes
-ud_arr*                                     ud_math_softmax(ud_arr* x);
+float*                                      ud_math_softmax(float* x, size_t len);
 float                                       ud_math_atof(const char *p);
 float                                       ud_math_exp(float x);
 char                                        *ud_math_itoa_l(long long n, size_t *len);
 float                                       ud_math_log(float x);
-float                                       ud_math_mean(ud_arr *x);
+float                                       ud_math_mean(float *x, size_t len);
 float                                       ud_math_pow(float x, float e);
 float                                       ud_math_rand(float bound_a, float bound_b);
 float                                       ud_math_sqrt(const float x);
-float                                       ud_math_min_a(ud_arr *x);
-float                                       ud_math_max_a(ud_arr *x);
+float                                       ud_math_min_a(float *x, size_t len);
+float                                       ud_math_max_a(float *x, size_t len);
 void                                        ud_math_merge_sort(size_t *arr, size_t l, size_t r);
 size_t		                                ud_math_int_len(int n);
 

@@ -1,6 +1,6 @@
 #include "ud_math.h"
 
-static void ud_merge(size_t *arr, size_t l, size_t m, size_t r) 
+static void ud_math_merge(size_t *arr, size_t l, size_t m, size_t r) 
 { 
     size_t i, j, k; 
     size_t n1 = m - l + 1; 
@@ -39,8 +39,8 @@ void ud_math_merge_sort(size_t *arr, size_t l, size_t r)
     if (l < r) 
     {
         size_t m = l+(r-l)/2; 
-        ud_merge_sort(arr, l, m); 
-        ud_merge_sort(arr, m+1, r); 
-        ud_merge(arr, l, m, r); 
+        ud_math_merge_sort(arr, l, m); 
+        ud_math_merge_sort(arr, m+1, r); 
+        ud_math_merge(arr, l, m, r); 
     } 
 } 
