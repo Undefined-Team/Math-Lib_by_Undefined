@@ -1,54 +1,27 @@
 #include "ud_math.h"
 
-static ud_arr   *ud_get_number(int n, int div, int neg, int size)
+static void		ud_math_itoa_rec(long long n, char *str)
 {
-    ud_arr  *nb;
-    int     i;
-
-    i = 0;
-    if (neg == -1)
-        size++;
-    nb = ud_arr_init(sizeof(char), size + 2);
-    char *nb_a = (char *)nb->val;
-    if (neg == -1)
-        nb_a[i++] = '-';
-    while (div > 0)
-    {
-        nb_a[i++] = n / div + '0';
-        n %= div;
-        div /= 10;
-    }
-    nb_a[i] = '\0';
-    return (nb);
+	if (n >= 10) ud_math_itoa_rec(n / 10, str - 1);
+    *str = (n % 10) + '0';
 }
 
-static ud_arr   *ud_return_int_min(void)
+char *ud_math_itoa_l(long long n, size_t *len)
 {
-    ud_arr  *int_min = ud_arr_init(sizeof(char), 11);
-    ud_arr_val(int_min, sizeof(char), 11, (void *)"-2147483648");
-    return (int_min);
-}
-
-ud_arr  *ud_math_itoa(int n)
-{
-    int     neg;
-    int     div;
-    int     size;
-
-    size = 0;
-    div = 1;
-    neg = 1;
-    if (n == -2147483648)
-        return ud_return_int_min();
+    char *res;
+    if (n == -2147483648) return ud_str_dup("-2147483648");
+    size_t n_len = ud_math_int_len(n);
+    int neg = 1;
     if (n < 0)
     {
         neg = -1;
         n *= -1;
+        ++n_len;
     }
-    while (n / div > 9)
-    {
-        size++;
-        div *= 10;
-    }
-    return ud_get_number(n, div, neg, size);
+    if (len) *len = n_len;
+    UD_UT_PROT_MALLOC(res = ud_ut_malloc(sizeof(char) * (n_len + 1)));
+    char *l_res = &res[n_len];
+    *l_res = '\0';
+	ud_math_itoa_rec(n, l_res - 1);
+    return res;
 }
