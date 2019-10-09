@@ -2,7 +2,7 @@
 
 static void ud_math_merge(size_t *arr, size_t l, size_t m, size_t r) 
 { 
-    size_t i, j, k; 
+    size_t i, j;
     size_t n1 = m - l + 1; 
     size_t n2 =  r - m; 
     size_t L[n1], R[n2]; 
@@ -11,7 +11,7 @@ static void ud_math_merge(size_t *arr, size_t l, size_t m, size_t r)
     size_t *R_tmp = R;
     size_t *arr_tmp = &arr[l];
     for (i = 0; i < n1; i++) *L_tmp++ = *arr_tmp++; 
-    arr_tmp = &arr[n + 1];
+    arr_tmp = &arr[m + 1];
     for (j = 0; j < n2; j++) *R_tmp++ = *arr_tmp++; 
     i = 0;
     j = 0;
