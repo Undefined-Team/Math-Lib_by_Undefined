@@ -33,5 +33,6 @@ float                                       ud_math_sqrt(const float x);
 float                                       ud_math_min_a(ud_arr *x);
 float                                       ud_math_max_a(ud_arr *x);
 void                                        ud_math_merge_sort(size_t *arr, size_t l, size_t r);
+size_t		                                ud_math_int_len(int n);
 
 #endif
