@@ -1,18 +1,15 @@
 #include "ud_math.h"
 
-float   ud_math_min_a(ud_arr *x)
+float   ud_math_min_a(float *x, size_t len)
 {
     float min;
     ud_bool ftime = false;
-
-    size_t x_len = x->len;
-    float *x_a = (float*)x->val;
-    for (size_t i = 0; i < x_len; i++)
+    for (size_t i = 0; i < len; i++)
     {
-        if (!ftime || min > x_a[i])
+        if (!ftime || min > x[i])
         {
             ftime = true;
-            min = x_a[i];
+            min = x[i];
         }
     }
     return ftime ? min : 0;
