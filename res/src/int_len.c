@@ -2,8 +2,7 @@
 
 size_t		ud_math_int_len(int n)
 {
-    if (n == -2147483648)
-		return (11);
+    if (n == -2147483648) return (11);
 	size_t len = 0;
 	if (n < 0)
 	{
