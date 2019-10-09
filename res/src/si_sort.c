@@ -17,7 +17,7 @@ static void ud_math_merge(size_t *arr, size_t l, size_t m, size_t r)
     j = 0;
     L_tmp = L;
     R_tmp = R;
-    arr_tmp = &arr[1];
+    arr_tmp = &arr[l];
     while (i < n1 && j < n2) 
     { 
         if (*L_tmp <= *R_tmp) 
