@@ -19,11 +19,18 @@ int main(void)
     // assert(ud_math_atof("257272.5727425752") - 257272.5727425752f < 0.01);
     // ud_ut_time("%s", "All tests passed.");
 
-    printf("%s\n", ud_math_itoa(56));
-    printf("%s\n", ud_math_itoa(-1));
-    printf("%s\n", ud_math_itoa(0));
-    printf("%s\n", ud_math_itoa(9));
-    printf("%s\n", ud_math_itoa(1));
-    printf("%s\n", ud_math_itoa(2147483647));
-    printf("%s\n", ud_math_itoa(-2147483648));
+    // printf("%s\n", ud_math_itoa(56));
+    // printf("%s\n", ud_math_itoa(-1));
+    // printf("%s\n", ud_math_itoa(0));
+    // printf("%s\n", ud_math_itoa(9));
+    // printf("%s\n", ud_math_itoa(1));
+    // printf("%s\n", ud_math_itoa(2147483647));
+    // printf("%s\n", ud_math_itoa(-2147483648));
+    
+    size_t tata[] = {5, 3, 4, 9, 0, 1};
+    ud_math_si_sort(tata, 6);
+    for (size_t i = 0; i < 6; ++i)
+    {
+        printf("%zd\n", tata[i]);
+    }
 }

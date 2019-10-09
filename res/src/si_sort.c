@@ -7,33 +7,34 @@ static void ud_math_merge(size_t *arr, size_t l, size_t m, size_t r)
     size_t n2 =  r - m; 
     size_t L[n1], R[n2]; 
   
-    for (i = 0; i < n1; i++) 
-        L[i] = arr[l + i]; 
-    for (j = 0; j < n2; j++) 
-        R[j] = arr[m + 1+ j]; 
+    size_t *L_tmp = L;
+    size_t *R_tmp = R;
+    size_t *arr_tmp = &arr[l];
+    for (i = 0; i < n1; i++) *L_tmp++ = *arr_tmp++; 
+    arr_tmp = &arr[n + 1];
+    for (j = 0; j < n2; j++) *R_tmp++ = *arr_tmp++; 
     i = 0;
     j = 0;
-    k = l;
+    L_tmp = L;
+    R_tmp = R;
+    arr_tmp = &arr[1];
     while (i < n1 && j < n2) 
     { 
-        if (L[i] <= R[j]) 
-            arr[k] = L[i++]; 
+        if (*L_tmp <= *R_tmp) 
+        {
+            *arr_tmp++ = *L_tmp++; 
+    	    ++i;
+        }
         else
-            arr[k] = R[j++]; 
-        k++; 
-    } 
-    while (i < n1) 
-    { 
-        arr[k] = L[i++]; 
-        k++; 
-    } 
-    while (j < n2) 
-    { 
-        arr[k] = R[j++]; 
-        k++;
-    } 
+        {
+            *arr_tmp++ = *R_tmp++; 
+            ++j;
+        }
+    }
+    for (; i < n1; ++i) *arr_tmp++ = *L_tmp++;
+    for (; j < n2; ++j) *arr_tmp++ = *R_tmp++;
 } 
-  
+
 void ud_math_merge_sort(size_t *arr, size_t l, size_t r) 
 { 
     if (l < r) 
