@@ -20,11 +20,14 @@
 # define    ud_math_si_sort(arr, len)       ud_math_merge_sort((size_t*)arr, 0, len - 1)
 # define    ud_math_itoa(x)                 ud_math_itoa_l(x, NULL)
 
+# define    ud_math_ftoa(n)                 ud_math_ftoa_prec(n, 5)
+
 // Structures
 
 // Prototypes
 float*                                      ud_math_softmax(float* x, size_t len);
 float                                       ud_math_atof(const char *p);
+char                                        *ud_math_ftoa_prec(double n, size_t prec);
 float                                       ud_math_exp(float x);
 char                                        *ud_math_itoa_l(long long n, size_t *len);
 float                                       ud_math_log(float x);

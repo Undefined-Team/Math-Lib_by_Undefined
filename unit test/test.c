@@ -1,8 +1,8 @@
-
+#include <stdlib.h>
 #include <ud_math.h>
 
 
-int main(void)
+int main(int ac, char **av)
 {
     // ud_arr  *nb_a = ud_arr_set(float, 10, 1,2,3,4,5,6,7,8,9,10);
 
@@ -27,10 +27,11 @@ int main(void)
     // printf("%s\n", ud_math_itoa(2147483647));
     // printf("%s\n", ud_math_itoa(-2147483648));
     
-    size_t tata[] = {5, 3, 4, 9, 0, 1};
-    ud_math_si_sort(tata, 6);
-    for (size_t i = 0; i < 6; ++i)
-    {
-        printf("%zd\n", tata[i]);
-    }
+    // size_t tata[] = {5, 3, 4, 9, 0, 1};
+    // ud_math_si_sort(tata, 6);
+    // for (size_t i = 0; i < 6; ++i)
+    // {
+    //     printf("%zd\n", tata[i]);
+    // }
+    printf("%s\n", ud_math_ftoa_prec(0.5f, 5));
 }
