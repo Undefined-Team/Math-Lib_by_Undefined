@@ -12,7 +12,7 @@ char *ud_math_itoa_l(long long n, size_t *len)
     size_t n_len = ud_math_int_len(n);
     if (len) *len = n_len;
     if (n == -2147483648) return ud_str_dup("-2147483648");
-    UD_UT_PROT_MALLOC(res = ud_ut_malloc(sizeof(char) * (n_len + 1)));
+    ud_ut_prot_malloc(res = ud_ut_malloc(sizeof(char) * (n_len + 1)));
     if (n < 0)
     {
         n *= -1;

@@ -29,7 +29,7 @@ char    *ud_math_ftoa_prec(double n, size_t prec)
     if (integer_part == -9223372036854775807) return ud_str_dup("-9223372036854775807");
     char *res;
     size_t len = ud_math_long_long_len(integer_part);
-    UD_UT_PROT_MALLOC(res = ud_ut_malloc((len + prec + 2) * sizeof(char)));
+    ud_ut_prot_malloc(res = ud_ut_malloc((len + prec + 2) * sizeof(char)));
     if (integer_part < 0)
     {
         integer_part *= -1;
