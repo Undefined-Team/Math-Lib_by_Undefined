@@ -12,5 +12,6 @@ static float ud_flog(float x)
 
 float ud_math_log(float x)
 {
-    return 0.69314718f * ud_flog(x);
+    if (x <= 0) return 0;
+    return 0.3005f * ud_flog(x);
 }

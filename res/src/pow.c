@@ -5,7 +5,7 @@ float ud_math_pow(float x, float e)
     float result = 1;
 
     if (e < 0 || e < 1 || e - (unsigned long)e != 0)
-        return (ud_math_exp(e * ud_math_log(x)));
+        return (ud_math_exp(e * ud_math_ln(x)));
     unsigned long exp = e;
     while (1)
     {

@@ -31,6 +31,7 @@ char                                        *ud_math_ftoa_prec(double n, size_t 
 float                                       ud_math_exp(float x);
 char                                        *ud_math_itoa_l(long long n, size_t *len);
 float                                       ud_math_log(float x);
+float                                       ud_math_ln(float x);
 float                                       ud_math_mean(float *x, size_t len);
 float                                       ud_math_pow(float x, float e);
 float                                       ud_math_rand(float bound_a, float bound_b);
