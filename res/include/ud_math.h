@@ -38,6 +38,7 @@ float                                       ud_math_rand(float bound_a, float bo
 float                                       ud_math_sqrt(const float x);
 float                                       ud_math_min_a(float *x, size_t len);
 float                                       ud_math_max_a(float *x, size_t len);
+float                                       ud_math_stdev(float *arr, size_t len, float mean);
 void                                        ud_math_merge_sort(size_t *arr, size_t l, size_t r);
 size_t		                                ud_math_int_len(int n);
 
